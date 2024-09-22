@@ -1,0 +1,121 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Restaurant model
+model Restaurant {
+  id          Int           @id @default(autoincrement())
+  name        String
+  description String
+  address     String
+  phone       String
+  doorDashUrl String
+  uberEatsUrl String
+  grubHubUrl  String
+  tockUrl     String
+  giftCardUrl String
+  instagram   String
+  facebook    String
+  email       String
+  Appetizer   Appetizer[]
+  Salad       Salad[]
+  Pizza       Pizza[]
+  Pasta       Pasta[]
+  AddOns      AddOns[]
+  MeatAndFish MeatAndFish[]
+  Dessert     Dessert[]
+  Wine        Wine[]
+  Cocktail    Cocktail[]
+}
+
+model Appetizer {
+  id           Int        @id @default(autoincrement())
+  name         String
+  description  String
+  price        Int
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId Int
+}
+
+model Salad {
+  id           Int        @id @default(autoincrement())
+  name         String
+  description  String
+  price        Int
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId Int
+}
+
+model Pizza {
+  id           Int        @id @default(autoincrement())
+  name         String
+  description  String
+  price        Int
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId Int
+}
+
+model Pasta {
+  id           Int        @id @default(autoincrement())
+  name         String
+  description  String
+  price        Int
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId Int
+}
+
+model AddOns {
+  id           Int        @id @default(autoincrement())
+  name         String
+  description  String
+  price        Int
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId Int
+}
+
+model MeatAndFish {
+  id           Int        @id @default(autoincrement())
+  name         String
+  description  String
+  price        Int
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId Int
+}
+
+model Dessert {
+  id           Int        @id @default(autoincrement())
+  name         String
+  description  String
+  price        Int
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId Int
+}
+
+model Wine {
+  id           Int        @id @default(autoincrement())
+  name         String
+  description  String
+  price        Int
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId Int
+}
+
+model Cocktail {
+  id           Int        @id @default(autoincrement())
+  name         String
+  description  String
+  price        Int
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId Int
+}
