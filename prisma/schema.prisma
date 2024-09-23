@@ -14,108 +14,65 @@ datasource db {
 }
 
 // Restaurant model
-model Restaurant {
-  id          Int           @id @default(autoincrement())
-  name        String
-  description String
-  address     String
-  phone       String
-  doorDashUrl String
-  uberEatsUrl String
-  grubHubUrl  String
-  tockUrl     String
-  giftCardUrl String
-  instagram   String
-  facebook    String
-  email       String
-  Appetizer   Appetizer[]
-  Salad       Salad[]
-  Pizza       Pizza[]
-  Pasta       Pasta[]
-  AddOns      AddOns[]
-  MeatAndFish MeatAndFish[]
-  Dessert     Dessert[]
-  Wine        Wine[]
-  Cocktail    Cocktail[]
-}
 
 model Appetizer {
-  id           Int        @id @default(autoincrement())
-  name         String
-  description  String
-  price        Int
-  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
-  restaurantId Int
+  id          Int    @id @default(autoincrement())
+  name        String
+  description String
+  price       Int
 }
 
 model Salad {
-  id           Int        @id @default(autoincrement())
-  name         String
-  description  String
-  price        Int
-  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
-  restaurantId Int
+  id          Int    @id @default(autoincrement())
+  name        String
+  description String
+  price       Int
 }
 
 model Pizza {
-  id           Int        @id @default(autoincrement())
-  name         String
-  description  String
-  price        Int
-  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
-  restaurantId Int
+  id          Int    @id @default(autoincrement())
+  name        String
+  description String
+  price       Int
 }
 
 model Pasta {
-  id           Int        @id @default(autoincrement())
-  name         String
-  description  String
-  price        Int
-  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
-  restaurantId Int
+  id          Int    @id @default(autoincrement())
+  name        String
+  description String
+  price       Int
 }
 
-model AddOns {
-  id           Int        @id @default(autoincrement())
-  name         String
-  description  String
-  price        Int
-  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
-  restaurantId Int
+model AddOn {
+  id    Int    @id @default(autoincrement())
+  name  String
+  price Int
 }
 
 model MeatAndFish {
-  id           Int        @id @default(autoincrement())
-  name         String
-  description  String
-  price        Int
-  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
-  restaurantId Int
+  id          Int    @id @default(autoincrement())
+  name        String
+  description String
+  price       Int
 }
 
 model Dessert {
-  id           Int        @id @default(autoincrement())
-  name         String
-  description  String
-  price        Int
-  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
-  restaurantId Int
+  id          Int    @id @default(autoincrement())
+  name        String
+  description String
+  price       Int
 }
 
 model Wine {
-  id           Int        @id @default(autoincrement())
-  name         String
-  description  String
-  price        Int
-  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
-  restaurantId Int
+  id          Int    @id @default(autoincrement())
+  name        String
+  description String
+  price       Int
 }
 
 model Cocktail {
-  id           Int        @id @default(autoincrement())
-  name         String
-  description  String
-  price        Int
-  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
-  restaurantId Int
+  id          Int    @id @default(autoincrement())
+  name        String
+  description String
+  price       Int
 }
