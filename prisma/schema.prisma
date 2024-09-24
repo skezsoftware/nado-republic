@@ -14,12 +14,29 @@ datasource db {
 }
 
 // Restaurant model
+model Restaurant {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String
+  address     String
+  phone       String
+  email       String
+  tockURL     String
+  giftCardURL String
+  uberEatsURL String
+  doorDashURL String
+  sliceURL    String
+  grubHubURL  String
+  logo        String
+}
+
 
 model Appetizer {
   id          Int    @id @default(autoincrement())
   name        String
   description String
   price       Int
+
 }
 
 model Salad {

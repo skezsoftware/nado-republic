@@ -7,6 +7,15 @@ const prisma = require("./prisma");
 app.use(express.json());
 app.use(require("morgan")("dev"));
 
+app.get("/api/restaurant", async (req, res, next) => {
+  try {
+    const restaurant = await prisma.restaurant.findFirst();
+    res.json(restaurant);
+  } catch (err) {
+    next(err);
+  }
+});
+
 app.get("/api/appetizers", async (req, res, next) => {
   try {
     const appetizers = await prisma.appetizer.findMany();
@@ -53,13 +62,13 @@ app.get("/api/addons", async (req, res, next) => {
 });
 
 app.get("/api/meatsandfish", async (req, res, next) => {
-    try {
-        const meatsAndFish = await prisma.meatAndFish.findMany();
-        res.json(meatsAndFish);
-    } catch (err) {
-        next(err);
-    }
-    });
+  try {
+    const meatsAndFish = await prisma.meatAndFish.findMany();
+    res.json(meatsAndFish);
+  } catch (err) {
+    next(err);
+  }
+});
 
 // Simple error handling middleware
 app.use((error, req, res, next) => {
